@@ -4,7 +4,7 @@
 
 $ sudo apt update
 
-$ sudo apt install -y postgresql postgresql-contrib
+$ sudo apt install -y postgresql postgresql-contrib libpq-dev
 
 ## Managing user for the app
 
@@ -18,14 +18,20 @@ $ sudo adduser cweb
 
 ## Installing PostgreSQL connector for C/C++
 
-$ sudo apt install -y libreadline-dev libpq-dev zlib1g-dev
+Based on (this)[https://www.tutorialspoint.com/postgresql/postgresql_c_cpp]
 
-$ git clone https://github.com/jtv/libpqxx.git
+Note: I am using Ubuntu 16
 
-$ cd libpqxx
+$ wget http://pqxx.org/download/software/libpqxx/libpqxx-4.0.tar.gz
 
-$ ./configure --disable-documentation
+$ tar xvfz libpqxx-4.0.tar.gz
 
-$ make
+$ cd libpqxx-4.0
+
+$ ./configure
+
+$ make -j 8
 
 $ sudo make install
+
+$ service postgresql restart
