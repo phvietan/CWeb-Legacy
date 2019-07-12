@@ -12,7 +12,8 @@
 
 class FileServer {
 private:
-  static std::string get_file_content(const std::string filePath);
+  static bool is_LFI_attack(const std::string path);
+  static std::string get_file_content(const std::string path);
 
 public:
   static bool file_exists(const std::string path);
