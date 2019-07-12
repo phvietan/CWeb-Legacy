@@ -22,6 +22,12 @@ Server::Server() {
     return FileServer::get_file_response(filePath);
   });
 
+  CROW_ROUTE(app, "/static/file/<string>")
+  ([](std::string path){
+    const std::string filePath = Path::connect_two_paths(SERVER_STATIC_FILE_BASE, path);
+    return FileServer::get_file_response(filePath);
+  });
+
   CROW_ROUTE(this->app, "/robots.txt")([] {
     auto page = crow::mustache::load("robots.txt");
     return page.render();
