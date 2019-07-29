@@ -7,6 +7,11 @@ html body {
 }
 
 #getting-started {
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-repeat: no-repeat;
   background-image: url("/static/img/background.jpg");
   height: 100vh;
   width: 101%;
@@ -99,14 +104,13 @@ html body {
   position: fixed;
   top: 0;
   z-index: 10;
-  box-shadow: 1px 1px 1px 1px #3d3d3d;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 10px 10px 0 rgba(0, 0, 0, 0.24);
 }
 
 #header-logo {
-  width: 55px;
-  height: 45px;
+  width: 175px;
+  height: 65px;
   margin-left: 20px;
-  padding: 8px;
 } 
 
 .header-button {
@@ -140,7 +144,11 @@ html body {
 }
 
 #how-content {
-  background-image: url("/static/img/how-pic.jpg");
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background: url("/static/img/how-pic.jpg") no-repeat center center;
   height: 100vh;
   width: 101%;
   -webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
