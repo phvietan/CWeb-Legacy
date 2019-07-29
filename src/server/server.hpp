@@ -6,13 +6,18 @@
 #include <vector>
 #include <iostream>
 #include "../crow.h"
-#include "../path/path.hpp"
 #include "../constants.hpp"
-#include "../fileServer/fileServer.hpp"
+#include "../pathHandler/pathHandler.hpp"
+#include "../fileHandler/fileHandler.hpp"
 
 class Server {
 private:
   crow::SimpleApp app;
+  PathHandler pathHandler;
+  FileHandler fileHandler;
+
+  void initPages();
+  void initStatics();
 
 public:
   Server();

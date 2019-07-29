@@ -1,11 +1,11 @@
-#include "path.hpp"
+#include "pathHandler.hpp"
 
-std::string Path::connect_two_paths(const std::string a, const std::string b) {
+std::string PathHandler::connect_two_paths(const std::string a, const std::string b) {
   const std::vector <std::string> paths = { a, b };
-  return Path::connect_vector_paths(paths);
+  return this->connect_vector_paths(paths);
 }
 
-std::string Path::connect_vector_paths(const std::vector <std::string> & paths) {
+std::string PathHandler::connect_vector_paths(const std::vector <std::string> & paths) {
   std::string result = paths[0];
   for (int i = 1; i < (int)paths.size(); ++i) {
     std::string cur = paths[i];

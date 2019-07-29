@@ -1,0 +1,85 @@
+html body {
+  margin-top: -5px;
+  margin-left: -5px;
+  font-family: 'Source Sans Pro', sans-serif;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+#header-menu-bar {
+  background-color: #ffffff;
+  width: 101%;
+  position: fixed;
+  top: 0;
+  z-index: 10;
+  box-shadow: 1px 1px 1px 1px #3d3d3d;
+}
+
+#header-logo {
+  width: 55px;
+  height: 45px;
+  margin-left: 20px;
+  padding: 8px;
+}
+
+.header-button {
+  background-color: #ffffff;
+  float: right;
+  height: 2rem;
+  width: 12rem;
+  margin-right: 5px;
+  border: none;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 22px;
+  cursor: pointer;
+  font-weight: 500;
+  color: black;
+}
+
+.header-button:hover {
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-bottom-color: rgb(4, 4, 155);
+}
+
+
+#getting-started {
+  background-image: url("/static/img/background.jpg");
+  height: 100vh;
+  width: 101%;
+}
+
+.body-content {
+  cursor: default;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-top: 10%;
+  margin-left: 25%;
+  width: 50%;
+  color: white;
+  background-color: rgb(41, 41, 41);
+}
+
+.body-content h1 {
+  margin-left: 100px;
+  font-weight: normal;
+}
+
+.button-content {
+  margin-left: 100px;
+  width: 100%;
+  padding-bottom: 20px;
+  margin-top: 30px;
+}
+
+.button-content a {
+  color: white;
+  font-size: 2rem;
+  border: 2px solid white;
+  padding: 10px;
+  text-decoration: none;
+  animation:bouncy 3s infinite linear;
+  position:relative;
+}

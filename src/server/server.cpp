@@ -1,37 +1,58 @@
 #include "server.hpp"
 
-Server::Server() {
-  puts("Initializing...");
-
+void Server::initPages() {
   CROW_ROUTE(this->app, "/")([]() {
-    crow::mustache::context x;
-    x["server-title"] = SERVER_TITLE;
+    // crow::mustache::context x;
+    // return page.render();
     auto page = crow::mustache::load("index.html");
-    return page.render(x);
+    return page.render();
   });
 
-  CROW_ROUTE(app, "/static/css/<string>")
-  ([](std::string path){
-    const std::string filePath = Path::connect_two_paths(SERVER_STATIC_CSS_BASE, path);
-    return FileServer::get_file_response(filePath);
+  CROW_ROUTE(this->app, "/signup")([](const crow::request & req) {
+    // const std::string s = req.get_header_value("");
+    auto page = crow::mustache::load("signup.html");
+    return page.render();
   });
 
-  CROW_ROUTE(app, "/static/img/<string>")
-  ([](std::string path){
-    const std::string filePath = Path::connect_two_paths(SERVER_STATIC_IMG_BASE, path);
-    return FileServer::get_file_response(filePath);
+  CROW_ROUTE(this->app, "/login")([]() {
+    auto page = crow::mustache::load("login.html");
+    return page.render();
+  });
+}
+
+void Server::initStatics() {
+  CROW_ROUTE(this->app, "/static/css/<string>")
+  ([this](std::string path) {
+    const std::string filePath = this->pathHandler.connect_two_paths(SERVER_STATIC_CSS_BASE, path);
+    return this->fileHandler.get_file_response(filePath);
   });
 
-  CROW_ROUTE(app, "/static/file/<string>")
-  ([](std::string path){
-    const std::string filePath = Path::connect_two_paths(SERVER_STATIC_FILE_BASE, path);
-    return FileServer::get_file_response(filePath);
+  CROW_ROUTE(this->app, "/static/img/<string>")
+  ([this](std::string path){
+    const std::string filePath = this->pathHandler.connect_two_paths(SERVER_STATIC_IMG_BASE, path);
+    return this->fileHandler.get_file_response(filePath);
+  });
+
+  CROW_ROUTE(this->app, "/static/file/<string>")
+  ([this](std::string path){
+    const std::string filePath = this->pathHandler.connect_two_paths(SERVER_STATIC_FILE_BASE, path);
+    return this->fileHandler.get_file_response(filePath);
   });
 
   CROW_ROUTE(this->app, "/robots.txt")([] {
     auto page = crow::mustache::load("robots.txt");
     return page.render();
   });
+}
+
+Server::Server() {
+  puts("Initializing...");
+
+  this->pathHandler = PathHandler();
+  this->fileHandler = FileHandler();
+
+  this->initPages();
+  this->initStatics();
 }
 
 void Server::run() {
