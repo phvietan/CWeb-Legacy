@@ -6,9 +6,11 @@
     <meta name="author" content="An Viet Pham">
     <meta name="description" content="Searchable Symmetric Encryption Database">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel='shortcut icon' type='image/x-icon' href='/static/img/favicon.ico' />
-    <link rel = "stylesheet" type = "text/css" href = "/static/css/signup.css" />
+    <link rel="shortcut icon" type="image/x-icon" href='/static/img/favicon.ico' />
+    <link rel = "stylesheet" type="text/css" href = "/static/css/signup.css" />
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap" rel="stylesheet">
+
+    <script type="application/javascript" src="/static/js/signup.js" defer></script>
   </head>
 
   <body>
@@ -28,7 +30,7 @@
           <input type="text" placeholder="Username"/> <br/>
           <input type="text" placeholder="Email"/> <br/>
           <input type="password" placeholder="Password"/> <br/>
-          <button>Signup</button>
+          <button onclick="signup()">Signup</button>
           <p class="message">Already have an account? <a href="login">Login here</a></p>
         </form>
       </div>

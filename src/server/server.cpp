@@ -39,9 +39,22 @@ void Server::initStatics() {
     return this->fileHandler.get_file_response(filePath);
   });
 
+  CROW_ROUTE(this->app, "/static/js/<string>")
+  ([this](std::string path){
+    const std::string filePath = this->pathHandler.connect_two_paths(SERVER_STATIC_JS_BASE, path);
+    return this->fileHandler.get_file_response(filePath);
+  });
+}
+
+void Server::initSpecials() {
   CROW_ROUTE(this->app, "/robots.txt")([] {
     auto page = crow::mustache::load("robots.txt");
     return page.render();
+  });
+
+  CROW_ROUTE(this->app, "/favicon.ico")([this] {
+    const std::string filePath = this->pathHandler.connect_two_paths(SERVER_STATIC_IMG_BASE, "favicon.ico");
+    return this->fileHandler.get_file_response(filePath);
   });
 }
 
@@ -53,6 +66,8 @@ Server::Server() {
 
   this->initPages();
   this->initStatics();
+
+  this->initSpecials();
 }
 
 void Server::run() {

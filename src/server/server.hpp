@@ -6,7 +6,7 @@
 #include <vector>
 #include <iostream>
 #include "../crow.h"
-#include "../constants.hpp"
+#include "serverConstants.hpp"
 #include "../pathHandler/pathHandler.hpp"
 #include "../fileHandler/fileHandler.hpp"
 
@@ -18,6 +18,7 @@ private:
 
   void initPages();
   void initStatics();
+  void initSpecials();
 
 public:
   Server();
