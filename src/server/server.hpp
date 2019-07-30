@@ -5,20 +5,21 @@
 
 #include <vector>
 #include <iostream>
+
 #include "../crow.h"
 #include "serverConstants.hpp"
-#include "../pathHandler/pathHandler.hpp"
-#include "../fileHandler/fileHandler.hpp"
+
+#include "../pageServer/pageServer.hpp"
+#include "../staticServer/staticServer.hpp"
+#include "../specialServer/specialServer.hpp"
 
 class Server {
 private:
   crow::SimpleApp app;
-  PathHandler pathHandler;
-  FileHandler fileHandler;
-
-  void initPages();
-  void initStatics();
-  void initSpecials();
+  
+  PageServer pageServer;
+  StaticServer staticServer;
+  SpecialServer specialServer;
 
 public:
   Server();
