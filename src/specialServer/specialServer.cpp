@@ -18,7 +18,7 @@ void SpecialServer::initSpecials() {
   });
 
   CROW_ROUTE(app, "/favicon.ico")([this] {
-    const std::string filePath = pathHandler.connect_two_paths(SERVER_STATIC_IMG_BASE, "favicon.ico");
+    const std::string filePath = pathHandler.connect_two_paths(STATIC_IMG_BASE, "favicon.ico");
     return fileHandler.get_file_response(filePath);
   });
 }
