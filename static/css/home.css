@@ -1,0 +1,42 @@
+html body {
+  margin-top: -5px;
+  margin-left: -5px;
+  font-family: 'Source Sans Pro', sans-serif;
+  overflow-x: hidden;
+  overflow-y: auto;
+
+  background: #76b852; /* fallback for old browsers */
+  background: -webkit-linear-gradient(right, #76b852, #8DC26F);
+  background: -moz-linear-gradient(right, #76b852, #8DC26F);
+  background: -o-linear-gradient(right, #76b852, #8DC26F);
+  background: linear-gradient(to left, #76b852, #8DC26F);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#header-menu-bar {
+  background-color: #ffffff;
+  width: 101%;
+  height: 70px;
+  top: 0;
+  z-index: 10;
+  box-shadow: 0 0 1px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
+#header-logo {
+  width: 175px;
+  height: 65px;
+  margin-left: 20px;
+  float: left;
+}
+
+.header-search {
+  margin-left: 30px;
+  width: 30%;
+  border: 1px solid black;
+  padding: 17px;
+  font-size: 15px;
+  margin-top: 10px;
+  float: left;
+  border-radius: 5px 0 0 5px;
+}

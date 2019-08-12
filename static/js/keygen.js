@@ -16,28 +16,12 @@ function checkKeys() {
 
 checkKeys();
 
-const keys = forge.util.decode64(storage.getItem('keys'));
-
-const prfL = keys.slice(0, 32);
-const prfR = keys.slice(32, 64);
-const aesKey = keys.slice(64, 96);
-
-console.log(prfL);
-console.log(forge.util.bytesToHex(prfL));
-console.log(prfL.length);
-
-console.log(aesKey);
-console.log(forge.util.bytesToHex(aesKey));
-console.log(aesKey.length);
-
 function getPrf(key, word) {
   const hmac = forge.hmac.create();
   hmac.start('sha256', key);
   hmac.update(word);
   return hmac.digest().data;
 }
-
-const word = 'hello world';
 
 function get00(aesKey, prfL, prfR, word) {
   let trapdoor = getPrf(aesKey, word);
