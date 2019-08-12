@@ -1,37 +1,36 @@
-# Configuring PostgreSQL Database
+# CWeb
 
-## Installing PostgreSQL
+This repo holds my C/C++ Web service code.
 
-$ sudo apt update
+The main purpose of this repo:
 
-$ sudo apt install -y postgresql postgresql-contrib libpq-dev
+- Learn C/C++ especially when applying OOP/Design pattern.
+- Learn to use various hard-to-understand C/C++ syntax: pointers, template, etc...
+- Learn & explore Linux system when connecting to database (because C/C++ is very near to Linux system, unlike Python, NodeJS, Ruby, ...).
+- Applying/Implementing Cryptography papers (currently studying Symmetric Searchable Encryption).
 
-## Managing user for the app
+# Installation
 
-$ sudo -u postgres createuser --interactive
+- sudo apt install libboost-all-dev
 
-username: cweb & superuser = y
+## Install Crypto++ lib
 
-$ sudo -u postgres createdb cweb
+- Github repo: [https://github.com/weidai11/cryptopp](https://github.com/weidai11/cryptopp)
 
-$ sudo adduser cweb
+- Clone that repo
 
-## Installing PostgreSQL connector for C/C++
+- cd <cryptopp directory>
 
-Based on (this)[https://www.tutorialspoint.com/postgresql/postgresql_c_cpp]
+- make -j8
 
-Note: I am using Ubuntu 16
+- make test
 
-$ wget http://pqxx.org/download/software/libpqxx/libpqxx-4.0.tar.gz
+- mkdir ~/.usrlib/
 
-$ tar xvfz libpqxx-4.0.tar.gz
+- make install PREFIX=~/.usrlib/
 
-$ cd libpqxx-4.0
+- mv cryptopp src/cryptopp/
 
-$ ./configure
+## Install database
 
-$ make -j 8
-
-$ sudo make install
-
-$ service postgresql restart
+- Follow database/README.md to install database
