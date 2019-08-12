@@ -20,14 +20,9 @@ void PageServer::initPages() {
     return page.render();
   });
 
-  CROW_ROUTE(app, "/signup")([](const crow::request & req) {
+  CROW_ROUTE(app, "/home")([](const crow::request & req) {
     // const std::string s = req.get_header_value("");
-    auto page = crow::mustache::load("signup.html");
-    return page.render();
-  });
-
-  CROW_ROUTE(app, "/login")([]() {
-    auto page = crow::mustache::load("login.html");
+    auto page = crow::mustache::load("home.html");
     return page.render();
   });
 }

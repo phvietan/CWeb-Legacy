@@ -14,26 +14,15 @@ void ApiServer::initApi() {
   puts("Creating ApiServer Endpoint");
   crow::SimpleApp & app = *(this->app);
 
-  CROW_ROUTE(app, "/api/user/signup")
+  CROW_ROUTE(app, "/api/test/crypto")
     .methods("POST"_method)
     ([](const crow::request & req) {
       puts("Receive post request");
       const auto jsonRequest = crow::json::load(req.body);
       if (!jsonRequest) return crow::response(400);
 
-      const std::string username = jsonRequest["username"].s();
-      const std::string email = jsonRequest["email"].s();
-      const std::string password = jsonRequest["password"].s();
-      if (username.length() > 40 || email.length() > 40 || password.length() > 40) return crow::response(400);
-
-      puts("Found username");
-      std::cout << username << std::endl;
-
-      puts("Found email");
-      std::cout << email << std::endl;
-
-      puts("Found password");
-      std::cout << password << std::endl;
+      const std::string prfL = jsonRequest["prfL"].s();
+      const std::string prfR = jsonRequest["prfR"].s();
       
       return crow::response(404);
     });
