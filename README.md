@@ -1,16 +1,37 @@
-# CWeb
+# Configuring PostgreSQL Database
 
-This repo holds my C/C++ Web service code.
+## Installing PostgreSQL
 
-The main purpose of this repo:
+$ sudo apt update
 
-- Learn C/C++ especially when applying OOP/Design pattern.
-- Learn to use various hard-to-understand C/C++ syntax: pointers, template, etc...
-- Learn & explore Linux system when connecting to database (because C/C++ is very near to Linux system, unlike Python, NodeJS, Ruby, ...).
-- Applying/Implementing Cryptography papers (currently studying Symmetric Searchable Encryption).
+$ sudo apt install -y postgresql postgresql-contrib libpq-dev
 
-# Installation
+## Managing user for the app
 
-- sudo apt install libboost-all-dev
+$ sudo -u postgres createuser --interactive
 
-- And follow database/README.md to install database
+username: cweb & superuser = y
+
+$ sudo -u postgres createdb cweb
+
+$ sudo adduser cweb
+
+## Installing PostgreSQL connector for C/C++
+
+Based on (this)[https://www.tutorialspoint.com/postgresql/postgresql_c_cpp]
+
+Note: I am using Ubuntu 16
+
+$ wget http://pqxx.org/download/software/libpqxx/libpqxx-4.0.tar.gz
+
+$ tar xvfz libpqxx-4.0.tar.gz
+
+$ cd libpqxx-4.0
+
+$ ./configure
+
+$ make -j 8
+
+$ sudo make install
+
+$ service postgresql restart
