@@ -16,6 +16,12 @@ $ sudo -u postgres createdb cweb
 
 $ sudo adduser cweb
 
+$ sudo su cweb
+
+$ psql
+
+$ \password cweb # change password of cweb
+
 ## Installing PostgreSQL connector for C/C++
 
 Based on (this)[https://www.tutorialspoint.com/postgresql/postgresql_c_cpp]
