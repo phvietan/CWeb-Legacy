@@ -11,7 +11,11 @@ The main purpose of this repo:
 
 # Installation
 
-- sudo apt install libboost-all-dev
+$ sudo add-apt-repository universe
+
+$ sudo apt-get update
+
+$ sudo apt install libboost-all-dev
 
 ## Install Crypto++ lib
 
@@ -19,17 +23,17 @@ The main purpose of this repo:
 
 - Clone that repo
 
-- cd <cryptopp directory>
+$ cd into cryptopp directory
 
-- make -j8
+$ make -j8
 
-- make test
+$ make test
 
-- mkdir ~/.usrlib/
+$ mkdir ~/.usrlib/
 
-- make install PREFIX=~/.usrlib/
+$ make install PREFIX=~/.usrlib/
 
-- mv cryptopp src/cryptopp/
+$ mv cryptopp src/cryptopp/
 
 ## Install database
 
