@@ -38,3 +38,7 @@ $ mv cryptopp src/cryptopp/
 ## Install database
 
 - Follow database/README.md to install database
+
+## Conclusion
+-->> If you find my work useful Thanks, it means a lot to me
+-->> If found any PRs or Bug feel free to approch.
